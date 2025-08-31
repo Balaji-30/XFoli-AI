@@ -1,0 +1,267 @@
+# ===========================================
+# XFoli AI - Monorepo .gitignore
+# ===========================================
+
+# ===============================
+# ENVIRONMENT & SECRETS
+# ===============================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+backend/.env*
+frontend/.env*
+
+# API Keys and Secrets
+secrets/
+*.key
+*.pem
+*.cert
+
+# ===============================
+# FRONTEND (Next.js / React)
+# ===============================
+
+# Dependencies
+frontend/node_modules/
+frontend/.pnp
+frontend/.pnp.js
+
+# Production builds
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/dist/
+
+# Next.js cache
+frontend/.next/cache/
+
+# Vercel deployment
+frontend/.vercel
+
+# Runtime data
+frontend/.cache/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# IDE and editors
+frontend/.vscode/
+frontend/.idea/
+frontend/*.swp
+frontend/*.swo
+
+# OS generated files
+frontend/.DS_Store
+frontend/.DS_Store?
+frontend/._*
+frontend/.Spotlight-V100
+frontend/.Trashes
+frontend/ehthumbs.db
+frontend/Thumbs.db
+
+# ===============================
+# BACKEND (Python / FastAPI)
+# ===============================
+
+# Python virtual environments
+backend/.venv/
+backend/venv/
+backend/env/
+backend/ENV/
+
+# Python cache
+backend/__pycache__/
+backend/*.py[cod]
+backend/*$py.class
+backend/.pytest_cache/
+backend/.coverage
+backend/htmlcov/
+
+# Python builds
+backend/build/
+backend/dist/
+backend/*.egg-info/
+backend/.eggs/
+
+# Python IDE
+backend/.spyderproject
+backend/.spyproject
+backend/.rope_project_prefs
+backend/.pydevproject
+
+# Jupyter Notebook
+backend/.ipynb_checkpoints
+
+# Database files (if using local SQLite)
+backend/*.db
+backend/*.sqlite
+backend/*.sqlite3
+
+# Logs
+backend/logs/
+backend/*.log
+
+# ===============================
+# DEVELOPMENT TOOLS
+# ===============================
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ===============================
+# DEPLOYMENT & CI/CD
+# ===============================
+
+# Deployment artifacts
+deployment/
+.deploy/
+
+# Docker (if using)
+docker-compose.override.yml
+.dockerignore
+
+# Terraform (if using)
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# ===============================
+# TESTING & COVERAGE
+# ===============================
+
+# Test coverage
+coverage/
+.nyc_output/
+.coverage
+htmlcov/
+
+# Test artifacts
+test-results/
+playwright-report/
+test-results.xml
+
+# ===============================
+# TEMPORARY & CACHE FILES
+# ===============================
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Cache directories
+.cache/
+.parcel-cache/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# ===============================
+# PACKAGE MANAGERS
+# ===============================
+
+# npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Yarn
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# pnpm
+.pnpm-store/
+
+# Python package managers
+pip-log.txt
+pip-delete-this-directory.txt
+
+# uv (Python package manager)
+.uv/
+
+# ===============================
+# PROJECT SPECIFIC
+# ===============================
+
+# Email templates (if containing sensitive data)
+# Note: We deleted them, but if recreated with API keys
+email-templates/*.html
+
+# Stock data files (if large)
+backend/stocks.csv
+backend/large_datasets/
+
+# User uploads (if any)
+uploads/
+user-data/
+
+# ===============================
+# DOCUMENTATION BUILDS
+# ===============================
+
+# Sphinx documentation
+docs/_build/
+docs/.doctrees
+
+# MkDocs
+site/
+
+# ===============================
+# ANALYTICS & MONITORING
+# ===============================
+
+# Analytics
+.analytics/
+*.analytics
+
+# Monitoring configs with sensitive data
+monitoring/secrets/
+
+# ===============================
+# MISC
+# ===============================
+
+# Lock files that shouldn't be committed
+*.lock
+!package-lock.json
+!yarn.lock
+!uv.lock
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+
+# Don't commit large binary files
+*.iso
+*.dmg
+*.pkg
+
+# ===========================================
+# END OF .gitignore
+# =========================================== 
