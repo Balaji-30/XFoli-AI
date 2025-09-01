@@ -338,14 +338,17 @@ export default function PortfolioDetailPage() {
           return 0
       }
 
-      if (typeof aValue === 'string') {
+      if (typeof aValue === 'string' && typeof bValue === 'string') {
         return sortDirection === 'asc' 
           ? aValue.localeCompare(bValue)
           : bValue.localeCompare(aValue)
       } else {
+        // Convert to numbers for comparison
+        const aNum = typeof aValue === 'number' ? aValue : parseFloat(String(aValue)) || 0
+        const bNum = typeof bValue === 'number' ? bValue : parseFloat(String(bValue)) || 0
         return sortDirection === 'asc' 
-          ? aValue - bValue
-          : bValue - aValue
+          ? aNum - bNum
+          : bNum - aNum
       }
     })
   }, [sortField, sortDirection])
