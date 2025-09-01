@@ -76,7 +76,7 @@ class ApiClient {
     // Check for pending duplicate requests
     const cacheKey = this.getCacheKey(endpoint, options)
     if (pendingRequests.has(cacheKey)) {
-      return pendingRequests.get(cacheKey)
+      return pendingRequests.get(cacheKey)!
     }
 
     const requestPromise = this.executeRequest<T>(endpoint, options)
