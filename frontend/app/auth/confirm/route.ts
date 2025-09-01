@@ -24,6 +24,7 @@ export async function GET(request: NextRequest) {
     try {
       const { data, error } = await supabase.auth.verifyOtp({
         token_hash,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         type: type as any
       })
       
