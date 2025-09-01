@@ -86,7 +86,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         console.log('✅ Portfolio deleted successfully')
         
         // Show success feedback (non-blocking)
-        if (typeof window !== 'undefined' && window.alert) {
+        if (typeof window !== 'undefined') {
           // Use setTimeout to show success message after state updates
           setTimeout(() => {
             alert(`Portfolio "${portfolioName}" has been successfully deleted.`)
