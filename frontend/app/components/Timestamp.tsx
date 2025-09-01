@@ -4,10 +4,8 @@ import { useState, useEffect } from "react";
 
 export function Timestamp() {
   const [time, setTime] = useState<number>(new Date().getFullYear())
-  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
-    setIsClient(true)
     setTime(new Date().getFullYear())
   }, [])
 

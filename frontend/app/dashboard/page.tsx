@@ -5,7 +5,7 @@ import { useRouter, usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { apiClient, type Portfolio } from '@/lib/api'
+import { apiClient } from '@/lib/api'
 
 export default function DashboardPage() {
   const [loading, setLoading] = useState(true)
@@ -88,7 +88,7 @@ export default function DashboardPage() {
         
         {/* Feature highlights */}
         <div className="mt-8 space-y-4">
-          <h3 className="text-sm font-medium text-muted-foreground text-center">What you'll get:</h3>
+          <h3 className="text-sm font-medium text-muted-foreground text-center">What you&apos;ll get:</h3>
           <div className="grid gap-3">
             <div className="flex items-center space-x-3 text-sm">
               <div className="w-2 h-2 bg-purple-500 rounded-full"></div>

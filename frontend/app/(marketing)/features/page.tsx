@@ -27,7 +27,7 @@ export default function FeaturesPage() {
               ✨ AI Portfolio Analysis
             </h3>
             <p className="text-gray-600 dark:text-gray-400">
-              Get intelligent, narrative explanations of your portfolio's daily performance with AI-powered insights 
+              Get intelligent, narrative explanations of your portfolio&apos;s daily performance with AI-powered insights 
               that analyze market trends, biggest movers, and provide actionable recommendations.
             </p>
           </div>
@@ -125,8 +125,8 @@ export default function FeaturesPage() {
                 Smart Portfolio Analysis That Speaks Your Language
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-400">
-                Our AI doesn't just show you numbers—it explains what they mean. Get clear, 
-                narrative explanations of your portfolio's performance with insights that help 
+                Our AI doesn&apos;t just show you numbers—it explains what they mean. Get clear, 
+                narrative explanations of your portfolio&apos;s performance with insights that help 
                 you make better investment decisions.
               </p>
               <div className="space-y-4">
@@ -134,7 +134,7 @@ export default function FeaturesPage() {
                   <div className="w-2 h-2 bg-purple-500 rounded-full mt-2"></div>
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-white">Daily Performance Analysis</h4>
-                    <p className="text-gray-600 dark:text-gray-400">Understand what drove your portfolio's performance today</p>
+                    <p className="text-gray-600 dark:text-gray-400">Understand what drove your portfolio&apos;s performance today</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
@@ -158,7 +158,7 @@ export default function FeaturesPage() {
                 <div className="text-sm font-medium text-purple-600 dark:text-purple-400">AI Analysis Sample:</div>
                 <div className="text-gray-800 dark:text-gray-200 text-sm leading-relaxed">
                   <strong>Daily Performance Analysis:</strong><br/>
-                  Today's portfolio showed a strong gain of +2.3% ($1,240), primarily driven by your NVDA position which surged 8.7% on strong earnings...
+                  Today&apos;s portfolio showed a strong gain of +2.3% ($1,240), primarily driven by your NVDA position which surged 8.7% on strong earnings...
                   <br/><br/>
                   <strong>Biggest Mover Spotlight:</strong><br/>
                   NVDA was your top performer, adding $980 to your portfolio value. The rally was fueled by better-than-expected Q4 results...

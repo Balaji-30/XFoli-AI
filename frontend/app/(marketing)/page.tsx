@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Button from "../components/ui/Button"
-import { Timestamp } from "../components/Timestamp"
 
 export default async function LandingPage() {
     return (
@@ -15,7 +14,7 @@ export default async function LandingPage() {
                 </span>
               </h1>
               <p className="mt-6 max-w-3xl mx-auto text-lg sm:text-xl text-gray-600 dark:text-gray-300">
-                Go beyond the numbers. Get a clear overview of your stock portfolio and let our AI analyst explain the 'why' behind the daily market moves.
+                Go beyond the numbers. Get a clear overview of your stock portfolio and let our AI analyst explain the &apos;why&apos; behind the daily market moves.
               </p>
               <div className="mt-10">
                 <Link href="/signup">
@@ -37,7 +36,7 @@ export default async function LandingPage() {
                   </div>
                   <h3 className="mt-4 text-lg font-medium text-gray-900 dark:text-white">Performance Snapshot</h3>
                   <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-                    Get a clear, up-to-date snapshot of your portfolio's total value and daily performance. See your gains and losses at a glance.
+                    Get a clear, up-to-date snapshot of your portfolio&apos;s total value and daily performance. See your gains and losses at a glance.
                   </p>
                 </div>
 
@@ -51,7 +50,7 @@ export default async function LandingPage() {
                   </div>
                   <h3 className="mt-4 text-lg font-medium text-gray-900 dark:text-white">AI-Generated Narrative</h3>
                   <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-                    Our AI agent analyzes your portfolio's performance and generates a plain-English narrative explaining what happened and why.
+                    Our AI agent analyzes your portfolio&apos;s performance and generates a plain-English narrative explaining what happened and why.
                   </p>
                 </div>
 

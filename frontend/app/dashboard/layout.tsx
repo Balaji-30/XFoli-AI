@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
+
 import { apiClient, type Portfolio } from '@/lib/api'
 import { createClient } from '@supabase/supabase-js'
 
@@ -42,13 +42,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const router = useRouter()
   const pathname = usePathname()
 
-  // Check for Supabase session and fetch portfolios
-  useEffect(() => {
-    checkSession()
-    fetchPortfolios()
-  }, [])
-
-  const checkSession = async () => {
+  const checkSession = useCallback(async () => {
     try {
       const { data: { session } } = await supabase.auth.getSession()
       if (session?.access_token) {
@@ -64,7 +58,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       console.error('Session check error:', error)
       router.push('/signin')
     }
-  }
+  }, [router])
 
   const handleDeletePortfolio = async (portfolioId: number, portfolioName: string, event: React.MouseEvent) => {
     // Prevent the link navigation when clicking delete
@@ -160,32 +154,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     }
   }, [pathname])
 
-  // Listen for storage events to refresh portfolio list when a new one is created
-  useEffect(() => {
-    const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === 'portfolio_created') {
-        console.log('🔄 New portfolio created, refreshing sidebar...')
-        localStorage.removeItem('portfolio_created') // Clean up
-        fetchPortfolios()
-      }
-    }
-
-    window.addEventListener('storage', handleStorageChange)
-    return () => window.removeEventListener('storage', handleStorageChange)
-  }, [])
-
-  // Also listen for custom events in the same window
-  useEffect(() => {
-    const handlePortfolioCreated = () => {
-      console.log('🔄 New portfolio created, refreshing sidebar...')
-      fetchPortfolios()
-    }
-
-    window.addEventListener('portfolioCreated', handlePortfolioCreated)
-    return () => window.removeEventListener('portfolioCreated', handlePortfolioCreated)
-  }, [])
-
-  const fetchPortfolios = async () => {
+  const fetchPortfolios = useCallback(async () => {
     try {
       const response = await apiClient.getPortfolios()
       
@@ -207,7 +176,38 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     } finally {
       setLoading(false)
     }
-  }
+  }, [pathname, router])
+
+  // Check for Supabase session and fetch portfolios
+  useEffect(() => {
+    checkSession()
+    fetchPortfolios()
+  }, [checkSession, fetchPortfolios])
+
+  // Listen for storage events to refresh portfolio list when a new one is created
+  useEffect(() => {
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'portfolio_created') {
+        console.log('🔄 New portfolio created, refreshing sidebar...')
+        localStorage.removeItem('portfolio_created') // Clean up
+        fetchPortfolios()
+      }
+    }
+
+    window.addEventListener('storage', handleStorageChange)
+    return () => window.removeEventListener('storage', handleStorageChange)
+  }, [fetchPortfolios])
+
+  // Also listen for custom events in the same window
+  useEffect(() => {
+    const handlePortfolioCreated = () => {
+      console.log('🔄 New portfolio created, refreshing sidebar...')
+      fetchPortfolios()
+    }
+
+    window.addEventListener('portfolioCreated', handlePortfolioCreated)
+    return () => window.removeEventListener('portfolioCreated', handlePortfolioCreated)
+  }, [fetchPortfolios])
 
 
 

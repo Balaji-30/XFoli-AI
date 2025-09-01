@@ -36,7 +36,7 @@ export default function TermsPage() {
               1. Acceptance of Terms
             </h2>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-              By accessing or using XFoli AI ("the Service"), you agree to be bound by these Terms of Service ("Terms"). 
+              By accessing or using XFoli AI (&ldquo;the Service&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). 
               If you do not agree with any part of these terms, you may not access the Service. These Terms apply to all 
               visitors, users, and others who access or use the Service.
             </p>
@@ -204,7 +204,7 @@ export default function TermsPage() {
             </h2>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               We reserve the right to modify these Terms at any time. We will notify users of significant changes 
-              by posting the new Terms on this page and updating the "Last updated" date. Your continued use of 
+              by posting the new Terms on this page and updating the &ldquo;Last updated&rdquo; date. Your continued use of 
               the Service after changes constitutes acceptance of the new Terms.
             </p>
           </section>
@@ -248,7 +248,7 @@ export default function TermsPage() {
               Questions about these Terms?
             </h3>
             <p className="text-gray-600 dark:text-gray-400 mb-4">
-              We're here to help clarify any questions you may have about our Terms of Service.
+              We&apos;re here to help clarify any questions you may have about our Terms of Service.
             </p>
             <a 
               href="/faq" 

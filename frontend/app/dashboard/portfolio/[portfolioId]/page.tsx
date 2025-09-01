@@ -41,30 +41,6 @@ export default function PortfolioDetailPage() {
   // Simple cache for portfolio data - memoize to prevent recreation on every render
   const portfolioCache = useMemo(() => new Map<string, Portfolio>(), [])
 
-  useEffect(() => {
-    if (portfolioId) {
-      // Check cache first for instant loading
-      const cachedPortfolio = portfolioCache.get(portfolioId)
-      if (cachedPortfolio) {
-        console.log('📦 Loading cached portfolio data...')
-        setPortfolio(cachedPortfolio)
-        setLoading(false)
-        // Still fetch fresh data in background
-        fetchPortfolioDetails(true)
-      } else {
-        fetchPortfolioDetails(false)
-      }
-    }
-  }, [portfolioId])
-
-  // Auto-collapse disclaimer when AI analysis is generated
-  useEffect(() => {
-    if (showAiModal && aiAnalysisResult && !aiAnalysisLoading && !disclaimerAutoCollapsed) {
-      setDisclaimerCollapsed(true)
-      setDisclaimerAutoCollapsed(true)
-    }
-  }, [showAiModal, aiAnalysisResult, aiAnalysisLoading, disclaimerAutoCollapsed])
-
   const fetchPortfolioDetails = useCallback(async (isBackgroundRefresh = false) => {
     try {
       if (!isBackgroundRefresh) {
@@ -94,7 +70,31 @@ export default function PortfolioDetailPage() {
       setLoading(false)
       setRefreshing(false)
     }
-  }, [portfolioId, router])
+  }, [portfolioId, router, portfolioCache])
+
+  useEffect(() => {
+    if (portfolioId) {
+      // Check cache first for instant loading
+      const cachedPortfolio = portfolioCache.get(portfolioId)
+      if (cachedPortfolio) {
+        console.log('📦 Loading cached portfolio data...')
+        setPortfolio(cachedPortfolio)
+        setLoading(false)
+        // Still fetch fresh data in background
+        fetchPortfolioDetails(true)
+      } else {
+        fetchPortfolioDetails(false)
+      }
+    }
+  }, [portfolioId, fetchPortfolioDetails, portfolioCache])
+
+  // Auto-collapse disclaimer when AI analysis is generated
+  useEffect(() => {
+    if (showAiModal && aiAnalysisResult && !aiAnalysisLoading && !disclaimerAutoCollapsed) {
+      setDisclaimerCollapsed(true)
+      setDisclaimerAutoCollapsed(true)
+    }
+  }, [showAiModal, aiAnalysisResult, aiAnalysisLoading, disclaimerAutoCollapsed])
 
   const handleRemoveHolding = async (holdingId: number) => {
     const response = await apiClient.removeHolding(holdingId)
@@ -303,7 +303,7 @@ export default function PortfolioDetailPage() {
     if (!sortField) return holdings
 
     return [...holdings].sort((a, b) => {
-      let aValue: any, bValue: any
+      let aValue: string | number, bValue: string | number
 
       switch (sortField) {
         case 'symbol':
