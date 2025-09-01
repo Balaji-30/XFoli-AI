@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
     try {
       const { data, error } = await supabase.auth.verifyOtp({
         token_hash,
-        type: type as 'email' | 'sms' | 'phone_change' | 'recovery' | 'invite' | 'magiclink' | 'confirmation' | 'signup'
+        type: type as 'email' | 'sms' | 'phone_change' | 'recovery' | 'invite' | 'magiclink' | 'signup'
       })
       
       console.log('🔍 verifyOtp result:', {
