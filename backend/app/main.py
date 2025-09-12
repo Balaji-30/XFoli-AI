@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,status,Response
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 import os
@@ -52,6 +52,10 @@ app.include_router(account.router, prefix="/api/account", tags=["Account"])
 @app.get("/")
 def read_root():
     return {"message": "API is running"}
+
+@app.head("/")
+def head_root():
+    return Response(status_code=status.HTTP_200_OK)
 
 @app.get("/health")
 def health_check():
