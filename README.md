@@ -11,7 +11,6 @@ XFoli AI is a full‑stack application that combines a modern Next.js frontend w
 - AI‑style narrative explanations of daily performance context
 - Clean UX for portfolio creation, holding management, and insights
 
-This README focuses on clarity for engineering managers and recruiters: what was built, how it’s architected, why certain tradeoffs were made, and how to run it locally.
 
 ## Highlights
 
