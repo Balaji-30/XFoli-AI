@@ -47,9 +47,20 @@ export default async function MarketingLayout({
         <footer >
           <div className="container mx-auto px-4 py-8">
             <div className="mt-8 border-t pt-8 text-center">
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                &copy; <Timestamp /> Xfoli AI. All rights reserved.
-              </p>
+              <div className="flex items-center justify-center gap-4">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  &copy; <Timestamp /> Xfoli AI. All rights reserved.
+                </p>
+                <span className="hidden md:inline text-gray-400">|</span>
+                <a
+                  href="https://github.com/Balaji-30/XFoli-AI"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-purple-600 underline"
+                >
+                  GitHub
+                </a>
+              </div>
             </div>
           </div>
         </footer>

@@ -88,7 +88,7 @@ export default async function MarketingLayout({
                   </li>
                   <li>
                     <a
-                      href="https://github.com/yourusername/mode"
+                      href="https://github.com/Balaji-30/XFoli-AI"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-gray-600 dark:text-gray-400 hover:text-purple-600"

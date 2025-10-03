@@ -440,12 +440,23 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         {/* Footer */}
         <footer className="border-t border-border bg-card flex-shrink-0">
           <div className="px-4 py-3 text-center">
-            <p className="text-xs text-muted-foreground">
-              <Link href="/disclaimer" className="hover:text-foreground underline">
-                ⚠️ Important Disclaimer
-              </Link>
-              {" - Not financial advice. For educational purposes only."}
-            </p>
+            <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
+              <p>
+                <Link href="/disclaimer" className="hover:text-foreground underline">
+                  ⚠️ Important Disclaimer
+                </Link>
+                {" - Not financial advice. For educational purposes only."}
+              </p>
+              <span className="hidden md:inline text-muted-foreground">|</span>
+              <a
+                href="https://github.com/Balaji-30/XFoli-AI"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-foreground underline"
+              >
+                GitHub
+              </a>
+            </div>
           </div>
         </footer>
       </main>
