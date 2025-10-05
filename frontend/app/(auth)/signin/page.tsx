@@ -171,6 +171,10 @@ function SignInForm() {
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white dark:bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10 border border-gray-200 dark:border-gray-700">
+          {/* Info: Render free-tier cold start disclaimer */}
+          <div className="mb-4 p-4 text-sm text-amber-800 bg-amber-50 border border-amber-200 rounded-md dark:bg-amber-900/30 dark:text-amber-200 dark:border-amber-700">
+            First sign in may take up to ~60 seconds because the backend is hosted on Render’s free tier (cold start). Please wait; subsequent logins will be faster.
+          </div>
           {/* Error Message */}
           {error && (
             <div className="mb-4 p-4 text-sm text-red-700 bg-red-100 border border-red-300 rounded-md dark:bg-red-900 dark:text-red-300 dark:border-red-600">
